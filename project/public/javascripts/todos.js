@@ -49,14 +49,14 @@ var TaskController = function() {
     if (!checked('priority', task.priority)) {
       return false;
     }
-    if (_.includes(['개인', '가족', '업무'], task.category)) {
-      if (!checked('category', task.category)) {
-        return false;
-      }
-    } else if (!checked('category', '기타')) {
-      return false;
-    }
-    return true;
+    //if (_.includes(['개인', '가족', '업무'], task.category)) {
+    //  if (!checked('category', task.category)) {
+    //    return false;
+    //  }
+    //} else if (!checked('category', '기타')) {
+    //  return false;
+   // }
+   // return true;
   };
 
   Constructor.prototype.load = function() {
@@ -85,7 +85,7 @@ var TaskController = function() {
 
   Constructor.prototype.clearForm = function() {
     $("#form-task input").val("");
-    $("#form-task select[name='category']").val("개인");
+    //$("#form-task select[name='category']").val("개인");
     $("#form-task select[name='priority']").val("2");
     $("#form-task input:first").focus();
   };

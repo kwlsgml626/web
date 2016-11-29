@@ -1,9 +1,11 @@
 form#form-task.form-inline(class='todos')
   .form
     .main
-      input(type='text', id='content', name='content', placeholder='해야할 일이 무엇인가요?')
+     // input(type='text', id='content', name='content', placeholder='해야할 일이 무엇인가요?')
+     input(type='checkin', id='content', name='content', placeholder='check in 날짜 YYYY-MM-DD')
+     input(type='checkout', id='content', name='content', placeholder='check out 날짜 YYYY-MM-DD')
     .sub
-      .form-group
+      //.form-group
         select.form-control(name='category')
           option(value='개인', selected) 개인
           option(value='가족') 가족
@@ -11,16 +13,16 @@ form#form-task.form-inline(class='todos')
           option(value='기타') 기타
       .form-group
         select.form-control(name='priority')
-          option(value='3') 중요
-          option(value='2', selected) 보통
-          option(value='1') 사소
+          option(value='3') 3명 이상
+          option(value='2', selected) 2명
+          option(value='1') 1명
   .actions
       button#post-task.btn.btn-primary.btn-lg.btn-block(type='button') 저장
 
 ul.tasks
 
 .no-task 
-  .alert.alert-info Task가 없습니다.
+  .alert.alert-info 예약이 없습니다.
 script#task-template(type='text/template').
   <li class='task <%= doneStr %>' data-id='<%= id %>'>
     <span class='check'>
@@ -33,7 +35,7 @@ script#task-template(type='text/template').
       </span>
     <% } %>
     <span class='priority p<%= priority %>'>
-      <%= (priority === 3) ? "중요" : ((priority === 1) ? "사소": "보통") %>
+      <%= (priority === 3) ? "3명 이상" : ((priority === 1) ? "2명": "1명") %>
     </span>
     <a href='#' class='remove'><i class='fa fa-trash-o'></i></a>
   </li>
